@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_07_04_194925) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bros", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 2019_07_04_194925) do
   end
 
   create_table "scooter_bros", force: :cascade do |t|
-    t.integer "scooter_id"
-    t.integer "bro_id"
+    t.bigint "scooter_id"
+    t.bigint "bro_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bro_id"], name: "index_scooter_bros_on_bro_id"
@@ -34,4 +37,6 @@ ActiveRecord::Schema.define(version: 2019_07_04_194925) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "scooter_bros", "bros"
+  add_foreign_key "scooter_bros", "scooters"
 end
