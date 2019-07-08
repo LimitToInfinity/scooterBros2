@@ -1,0 +1,23 @@
+<% if @bro.errors.any? %>
+    <% @bro.errors.full_messages.each do |message| %>
+        <%= message %> 😱
+    <% end %>
+<% end %>
+
+<h1>New Bro</h1>
+
+<%= form_for(@bro) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <%= f.fields_for :scooters do |ff| %>
+        <span>Scooter <%= ff.label :brand %></span>
+        <%= ff.text_field :brand %>
+    <% end %>
+    <br><br>
+    <%= f.submit "Go Bro Go" %>
+<% end %>
+
+<br><br>
+<button><%= link_to "All Bros", bros_path %></button>

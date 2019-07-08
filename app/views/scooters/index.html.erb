@@ -1,0 +1,9 @@
+<h1>Scooters</h1>
+
+<% @scooters.each.with_index(1) do |scooter, index| %>
+    <%= link_to "#{index}) #{scooter.brand}", scooter_path(scooter) %>
+    <br>
+<% end %>
+
+<br><br>
+<button><%= link_to "All Bros", bros_path %></button>

@@ -1,0 +1,19 @@
+<h1><u>Bros</u></h1>
+
+<form action="/bros" method="get">
+  <label>Search</label>
+  <br>
+  <input type="text" name="search" />
+  <input type="submit" />
+</form>
+
+<br>
+<% @bros.each do |bro| %>
+    <%= link_to bro.name, bro_path(bro) %>
+    <br>
+<%end%>
+
+<br><br>
+<button><%= link_to "New Bro", new_bro_path %></button>
+<br><br>
+<button><%= link_to "All Scooters", scooters_path %></button>

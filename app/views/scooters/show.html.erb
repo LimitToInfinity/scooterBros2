@@ -1,0 +1,14 @@
+<h1><u><%=@scooter.brand%></u></h1>
+
+<h3><em>Bros:</em></h3>
+<% @scooter.bros.each do |bro| %>
+    <%= link_to bro.name, bro_path(bro) %>
+<%end%>
+
+<br><br>
+<%= button_to "Dump this Scooter FOREVER", @scooter, method: :delete %>
+
+<br><br><br>
+<button><%= link_to "All Scooters", scooters_path %></button>
+<br><br>
+<button><%= link_to "All Bros", bros_path %></button>
